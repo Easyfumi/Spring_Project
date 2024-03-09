@@ -18,7 +18,6 @@ public class Config {
         return "Hello world!";
     }
 
-
     @Bean
     Date getStartDate() {
         return new Date();
