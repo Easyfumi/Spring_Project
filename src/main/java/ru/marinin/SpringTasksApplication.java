@@ -50,6 +50,11 @@ public class SpringTasksApplication {
 		Object task823 = ctx.getBean("getRewiew");
 		System.out.println(task823);
 
+		StreamingPlatform task826 = ctx.getBean(StreamingPlatform.class);
+		System.out.println(task826.start());
+
+
+
 
 
 
