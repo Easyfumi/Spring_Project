@@ -1,12 +1,10 @@
 package ru.marinin;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.marinin.Trafficlight.Trafficlight;
 
-import javax.xml.crypto.Data;
 import java.util.function.Predicate;
 
 @SpringBootApplication
@@ -39,15 +37,22 @@ public class SpringTasksApplication {
 		Object task815_min = ctx.getBean("min");
 		System.out.println(task815_min);
 
-		Trafficlight tr = ctx.getBean(Trafficlight.class);
-		while (true) {
-			System.out.println(tr.next());
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				throw new RuntimeException(e);
-			}
-		}
+//		Trafficlight tr = ctx.getBean(Trafficlight.class);
+//		while (true) {
+//			System.out.println(tr.next());
+//			try {
+//				Thread.sleep(1000);
+//			} catch (InterruptedException e) {
+//				throw new RuntimeException(e);
+//			}
+//		}
+
+		Object task823 = ctx.getBean("getRewiew");
+		System.out.println(task823);
+
+
+
+
 	}
 
 }
