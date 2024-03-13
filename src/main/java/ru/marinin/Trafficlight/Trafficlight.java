@@ -1,20 +1,21 @@
 package ru.marinin.Trafficlight;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class Trafficlight{
-    Color color=Colors.YELLOW2;
+    @Autowired @Qualifier("starter")
+    Color startedColor;
     @Bean
     @Scope("prototype")
-    public String next(){
-        color=color.next();
-        return color.toString();
+    public Color next(){
+        Color current = startedColor;
+        startedColor = startedColor.next();
+        return current;
     }
-}
-interface Color{
-    Colors next();
 }
 

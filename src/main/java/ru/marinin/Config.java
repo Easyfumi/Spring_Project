@@ -16,7 +16,7 @@ public class Config {
         return "Hello world!";
     }
 
-    @Bean
+    @Bean @Lazy
     Date getStartDate() {
         return new Date();
     }
@@ -38,13 +38,8 @@ public class Config {
 
 
     @Bean
-    @Lazy
-    Reviews getRewiew() {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext("ru.marinin");
-        List<Reviews> list = new ArrayList<>();
-        list.add((Reviews) ctx.getBean("get3"));
-        list.add((Reviews) ctx.getBean("get4"));
-        list.add((Reviews) ctx.getBean("getWTF"));
+    @Scope("prototype")
+    Reviews getRewiew(List<Reviews> list) {
         list.sort((o1, o2) -> o2.text.grade-o1.text.grade);
         return list.get(0);
     }

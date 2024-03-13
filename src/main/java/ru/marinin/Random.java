@@ -1,5 +1,6 @@
 package ru.marinin;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -46,10 +47,7 @@ public class Random {
 
     @Scope("prototype")
     @Bean
-    int randomInt() {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext("ru.marinin");
-        int max = (int) ctx.getBean("max");
-        int min = (int) ctx.getBean("min");
+    int randomInt(@Qualifier("min") int min, @Qualifier("max") int max) {
         checkChange(min, max);
         initNum();
         return num;
