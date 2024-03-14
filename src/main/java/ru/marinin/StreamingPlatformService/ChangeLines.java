@@ -8,16 +8,19 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
-@Configuration
-public class ChangeLines {
-    @Bean
-    @Lazy
-    public List<String> change(String input) {
+@Component
+public class ChangeLines implements UnaryOperator<String> {
+
+    @Override
+    public String apply(String input) {
         return Arrays.stream(input.split(" "))
                 .map(x -> x.toUpperCase())
                 .map(x -> x.replaceAll("A", ""))
                 .filter(x -> x.length()>4)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()).toString();
     }
+
 }

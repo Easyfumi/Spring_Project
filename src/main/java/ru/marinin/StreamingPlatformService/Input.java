@@ -10,10 +10,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
-@Configuration
-public class Input {
-    @Bean
-    public String read() {
+import java.util.function.Supplier;
+
+@Component
+public class Input implements Supplier<String> {
+
+    @Override
+    public String get() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите имя файла, откуда хотите считать данные:");
         try {

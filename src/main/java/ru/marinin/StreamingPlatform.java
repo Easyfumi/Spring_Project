@@ -10,16 +10,23 @@ import ru.marinin.StreamingPlatformService.Input;
 import ru.marinin.StreamingPlatformService.Output;
 
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 @Component
 public class StreamingPlatform {
-    @Autowired Input input;
-    @Autowired ChangeLines changeLines;
-    @Autowired Output output;
-//    @Bean
-//    boolean start(Input input, ChangeLines changeLines, Output output) {
-//        String  string = input.read();
-//        List<String> list = changeLines.change(string);
-//        return output.write(list);
-//    }
+    @Autowired
+    public Supplier<String> input;
+    @Autowired
+    public UnaryOperator<String> changeLines;
+    @Autowired
+    public Consumer<String> output;
+
+    public void start() {
+        String text = input.get();
+        text = changeLines.apply(text);
+        output.accept(text);
+    }
+
 }

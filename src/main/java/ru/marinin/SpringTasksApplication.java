@@ -12,8 +12,10 @@ public class SpringTasksApplication {
 
 	public static void main(String[] args) {
 
-		ApplicationContext ctx = new AnnotationConfigApplicationContext("ru.marinin");
-		ctx.getBean(StreamingPlatform.class);
+		new AnnotationConfigApplicationContext("ru.marinin")
+				.getBean(StreamingPlatform.class)
+				.start();
+
 
 	}
 
