@@ -44,6 +44,11 @@ public class Config {
         return list.get(0);
     }
 
+    @Bean
+    public Student student(Predicate<Integer> gradesRange) {
+        return new Student(null, 2,3,4,5);
+    }
+
 
 
 

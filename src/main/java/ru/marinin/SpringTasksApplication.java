@@ -12,10 +12,8 @@ public class SpringTasksApplication {
 
 	public static void main(String[] args) {
 
-		new AnnotationConfigApplicationContext("ru.marinin")
-				.getBean(StreamingPlatform.class)
-				.start();
-
+		System.out.println(new AnnotationConfigApplicationContext("ru.marinin")
+				.getBean("student"));
 
 	}
 
