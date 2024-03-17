@@ -14,7 +14,7 @@ public class NamePostProcess implements BeanPostProcessor {
         try {
             Field field = bean.getClass().getDeclaredField("name");
             field.setAccessible(true);
-            if (field.get(bean) == null)
+            if (field.get(bean) == null && field.getType()==String.class)
                 field.set(bean, "Vasya");
         } catch (NoSuchFieldException e) {
 
