@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 import java.util.function.Predicate;
 
-@ToString
+@Component
 public class Student implements Compare, Cloneable {
     private String name;
     private List<Integer> grades = new ArrayList<>();
@@ -108,4 +108,11 @@ public class Student implements Compare, Cloneable {
         return 0;
     }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", grades=" + grades +
+                '}';
+    }
 }

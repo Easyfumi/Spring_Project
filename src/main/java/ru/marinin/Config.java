@@ -46,7 +46,7 @@ public class Config {
 
     @Bean
     public Student student(Predicate<Integer> gradesRange) {
-        return new Student(null, 2,3,4,5);
+        return new Student(null);
     }
 
 
