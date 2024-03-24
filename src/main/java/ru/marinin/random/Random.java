@@ -1,4 +1,4 @@
-package ru.marinin;
+package ru.marinin.random;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-@Configuration
+//@Configuration
 public class Random {
     private List<Integer> list = new ArrayList<>();
     private int max = 0;
@@ -45,9 +45,9 @@ public class Random {
         num = ThreadLocalRandom.current().nextInt(min,max+1);
     }
 
-    @Scope("prototype")
-    @Bean
-    int randomInt(@Qualifier("min") int min, @Qualifier("max") int max) {
+//    @Scope("prototype")
+//    @Bean
+    public int randomInt(@Qualifier("min") int min, @Qualifier("max") int max) {
         checkChange(min, max);
         initNum();
         return num;

@@ -12,23 +12,15 @@ public abstract class MyToString {
     @Override
     public final String toString() {
 
-        List<Field> list = new ArrayList<>(reflectionUtils.feildCollection(this));
-
+        List<Field> list = new ArrayList<>(ReflectionUtils.feildCollection(this));
         Map<String, Object > fieldsMap = new HashMap<>();
-
-
         for (Field f : list) {
-
             ToString toString = f.getDeclaredAnnotation(ToString.class);
-
             if (toString==null) {
                 toString = f.getDeclaringClass().getDeclaredAnnotation(ToString.class);
             }
-
             if (!(toString==null||toString.value()==NeedToString.YES)) continue;
-
             if(Modifier.isStatic(f.getModifiers())) continue;
-
             try {
                 f.setAccessible(true);
                 fieldsMap.put(f.getName(), f.get(this));
@@ -36,7 +28,6 @@ public abstract class MyToString {
                 throw new RuntimeException(e);
             }
         }
-
     return this.getClass().getSimpleName() + fieldsMap;
     }
 }

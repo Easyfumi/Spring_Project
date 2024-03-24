@@ -101,10 +101,6 @@ public class Student implements Compare, Cloneable {
         return true;
     }
     @Override
-    public String toString() {
-        return name + ": " + grades;
-    }
-    @Override
     public int compare(Object obj) {
         double diff = this.getMiddleGrade() - ((Student) obj).getMiddleGrade();
         if (diff>0) return 1;

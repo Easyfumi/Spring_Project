@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
 
-public class reflectionUtils {
+public class ReflectionUtils {
     public static List feildCollection(Object object) {
         List<Class> list = new ArrayList<>();
         List<Field> fieldList = new ArrayList<>();
