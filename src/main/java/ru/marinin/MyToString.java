@@ -1,5 +1,7 @@
 package ru.marinin;
 
+import ru.marinin.toString.ToString;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;

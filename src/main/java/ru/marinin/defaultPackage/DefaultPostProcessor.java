@@ -40,13 +40,8 @@ public class DefaultPostProcessor implements BeanPostProcessor {
         Field[] fields = bean.getClass().getDeclaredFields();
         Object resetBean = applicationContext.getBean(bean.getClass().getAnnotation(DefaultAnnotation.class).value());
         Method[] methods = resetBean.getClass().getDeclaredMethods();
-        for (Method method : methods) {
-            System.out.println(method.getReturnType());
-        }
-        System.out.println(resetBean);
         for (Field field : fields) {
             field.setAccessible(true);
-            System.out.println("TYPE: " + field.getType());
             try {
                 field.set(bean, findMethod(methods, field).invoke(resetBean));
             } catch (IllegalAccessException e) {

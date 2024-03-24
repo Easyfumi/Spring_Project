@@ -4,16 +4,21 @@ package ru.marinin;
 
 
 import org.springframework.stereotype.Component;
+import ru.marinin.toString.ToString;
+import ru.marinin.toString.ToStringable;
 
 import java.util.*;
 import java.util.function.Predicate;
-
+@ToString
 @Component
 public class Student implements Compare, Cloneable {
     private String name;
     private List<Integer> grades = new ArrayList<>();
     private Deque<Action> actions = new ArrayDeque<>();
     private int undoCounter = -1;
+
+    public Student() {
+    }
 
     public Student(String name, Integer... args) {
         this.name = name;
@@ -108,11 +113,11 @@ public class Student implements Compare, Cloneable {
         return 0;
     }
 
-    @Override
+/*    @Override
     public String toString() {
         return "Student{" +
                 "name='" + name + '\'' +
                 ", grades=" + grades +
                 '}';
-    }
+    }*/
 }

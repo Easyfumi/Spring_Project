@@ -8,6 +8,7 @@ import ru.marinin.Trafficlight.Trafficlight;
 import ru.marinin.defaultPackage.ClassForTestDefault;
 import ru.marinin.jdbc.*;
 import ru.marinin.random.Random;
+import ru.marinin.toString.ToStringable;
 
 import java.io.FilterOutputStream;
 import java.sql.*;
@@ -53,13 +54,25 @@ public class SpringTasksApplication {
 //        System.out.println(random.randomInt(0, 101));
 //        System.out.println(random.randomInt(0, 101));
 
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext("ru.marinin.defaultPackage");
-        ClassForTestDefault objForTest = applicationContext.getBean(ClassForTestDefault.class);
-        System.out.println(objForTest.x);
-        System.out.println(objForTest.random.randomInt(0, 100));
-        System.out.println(objForTest.random.randomInt(0, 100));
-        System.out.println(objForTest.random.randomInt(0, 100));
-        System.out.println(objForTest);
+//        ApplicationContext applicationContext = new AnnotationConfigApplicationContext("ru.marinin.defaultPackage");
+//        ClassForTestDefault objForTest = applicationContext.getBean(ClassForTestDefault.class);
+//        System.out.println(objForTest.x);
+//        System.out.println(objForTest.random.randomInt(0, 100));
+//        System.out.println(objForTest.random.randomInt(0, 100));
+//        System.out.println(objForTest.random.randomInt(0, 100));
+//        System.out.println(objForTest);
+
+
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext("ru.marinin.toString");
+        ToStringable obj = (ToStringable) applicationContext.getBean("classForTestToString");
+
+
+        obj.setAge(10);
+        obj.setCity("Moscow");
+        System.out.println(obj.getAge());
+        System.out.println(obj);
+
+
 
 
 

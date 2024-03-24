@@ -1,4 +1,6 @@
-package ru.marinin;
+package ru.marinin.toString;
+
+import ru.marinin.NeedToString;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
